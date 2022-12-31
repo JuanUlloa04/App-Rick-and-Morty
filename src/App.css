@@ -1,0 +1,12 @@
+.App {
+	text-align: center;
+}
+
+body {
+	font-family: 'Fredoka One', cursive;
+}
+
+.row {
+	display: flex;
+	justify-content: center;
+}

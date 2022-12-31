@@ -1,0 +1,25 @@
+.contenedor {
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	/* padding: 15px; */
+	box-shadow: 10px 10px 25px rgba(0, 0, 0, 0.5);
+	background: rgba(255, 255, 255, 0);
+	backdrop-filter: blur(5px);
+}
+
+/* .imgLogo {
+	width: 100%;
+	height: 100%;
+} */
+
+.img1 {
+	width: 250px;
+	height: 40px;
+}
+
+.searchBar {
+	display: flex;
+	justify-content: space-evenly;
+	align-items: flex-end;
+}

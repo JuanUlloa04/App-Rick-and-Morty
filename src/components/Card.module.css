@@ -1,0 +1,111 @@
+.card {
+	margin: 13px;
+	width: 13rem;
+	height: 20rem;
+	transition: all 0.2s;
+	background-color: #000000db;
+	box-shadow: 20px 20px 70px rgb(1, 21, 1);
+	border-radius: 10px;
+	position: relative;
+}
+
+.card_inner {
+	width: inherit;
+	height: inherit;
+	position: absolute;
+	background: rgba(0, 0, 0, 0.55);
+	backdrop-filter: blur(7px);
+	-webkit-backdrop-filter: blur(7px);
+	border-radius: inherit;
+}
+
+.card:hover {
+	transform: scale(1.04) rotate(1deg);
+	backdrop-filter: blur(10px);
+}
+
+.button,
+.name,
+.img {
+	cursor: pointer;
+}
+
+.circle {
+	backdrop-filter: blur(50px);
+	width: 70px;
+	height: 70px;
+	background: radial-gradient(#b0e633, #53ef7d);
+	box-shadow: 0 0 5px #53ef7d;
+	position: absolute;
+	animation: move-up6 1.5s ease-in infinite alternate-reverse;
+}
+
+.circle:nth-child(1) {
+	border-top-left-radius: 20%;
+	border-top-right-radius: 20%;
+	border-bottom-right-radius: 100%;
+	border-bottom-left-radius: 20%;
+	top: 8px;
+	left: 8px;
+}
+
+.circle:nth-child(2) {
+	border-top-left-radius: 100%;
+	border-top-right-radius: 20%;
+	border-bottom-right-radius: 20%;
+	border-bottom-left-radius: 20%;
+	bottom: 8px;
+	right: 8px;
+	animation-name: move-down1;
+}
+
+@keyframes move-up6 {
+	to {
+		transform: translateY(-5px) translateX(-5px);
+	}
+}
+
+@keyframes move-down1 {
+	to {
+		transform: translateY(5px) translateX(5px);
+	}
+}
+
+.data {
+	position: inherit;
+}
+
+.buttonContainer {
+	display: flex;
+	justify-content: flex-end;
+	margin-right: 7px;
+	margin-top: 7px;
+}
+
+.button {
+	border-radius: 5px;
+	border-color: transparent;
+}
+
+.button:hover {
+	background-color: red;
+	border-color: transparent;
+}
+
+.name,
+.h4 {
+	margin: 10px 0px;
+	font-size: 18px;
+	color: white;
+	font-variant: small-caps;
+}
+
+.img {
+	width: 90%;
+	border-radius: 10px;
+}
+
+.info {
+	display: flex;
+	justify-content: space-evenly;
+}

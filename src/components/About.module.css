@@ -1,0 +1,21 @@
+.info {
+	padding: 150px;
+	text-align: center;
+}
+.h1 {
+	text-align: left;
+	font-size: 60px;
+	color: rgba(0, 0, 0, 0.825);
+}
+
+.h4 {
+	margin-top: 25px;
+	text-align: justify;
+	font-size: 26px;
+	color: rgba(0, 0, 0, 0.89);
+}
+
+.h5 {
+	text-align: right;
+	color: rgba(0, 0, 0, 0.799);
+}
