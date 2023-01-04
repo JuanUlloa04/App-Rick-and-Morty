@@ -1,5 +1,6 @@
 import styles from './Form.module.css';
 import React, { useState } from 'react';
+import Logo from '../img/rick-logo.3bbcddb8c31579019495.png';
 
 function Form(props) {
 	const [userData, setUserData] = useState({
@@ -19,25 +20,29 @@ function Form(props) {
 			'^(?=[A-Za-z]+[0-9]|[0-9]+[A-Za-z])[A-Za-z0-9]{6,10}$'
 		);
 
-		!regexEmail.test(username) &&
-			(errors.username = 'Name must be a valid email address');
-		!username && (errors.username = 'Add your name');
-		username.length > 35 && (errors.username = 'Max length 35');
-		!regexPass.test(password) && (errors.password = 'Add pass 6-10 characters');
-
+		if (!username) {
+			errors.username = 'Add your username';
+		} else if (!regexEmail.test(username)) {
+			errors.username = 'Name must be a valid email address';
+		} else if (username.length > 35) {
+			errors.username = 'Max length 35';
+		} else if (!password) {
+			errors.password = 'Add your password';
+		} else if (!regexPass.test(password)) {
+			errors.password = 'Add pass 6-10 characters';
+		}
 		return errors;
 	};
 
 	const handleInputChange = (e) => {
-		const property = e.target.name;
-		const value = e.target.value;
-		setUserData({ ...userData, [property]: value });
-		setErrors(validation({ ...userData, [property]: value }));
+		const { name, value } = e.target;
+		setUserData({ ...userData, [name]: value });
+		setErrors(validation({ ...userData, [name]: value }));
 	};
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		props.login(userData);
+		props.logIn(userData);
 		if (!Object.keys(errors).length) {
 			setErrors({
 				username: '',
@@ -47,35 +52,44 @@ function Form(props) {
 				username: '',
 				password: '',
 			});
-			alert('Complete Data');
 		} else {
 			alert('You must corrrect the errors');
 		}
 	};
 
 	return (
-		<div>
-			<form onSubmit={handleSubmit}>
-				<label htmlFor="username">Username</label>
+		<div className={styles.container}>
+			<form onSubmit={handleSubmit} className={styles.form}>
+				<img src={Logo} alt="not found" className={styles.logo} />
+				<label htmlFor="username">
+					<h3>Username:</h3>
+				</label>
 				<input
+					placeholder="juanulloa@gmail.com"
 					type="text"
 					name="username"
 					value={userData.username}
-					onChange={handleInputChange}
-					className={errors.username && styles.warning}
+					onChange={(e) => handleInputChange(e)}
+					className={errors.username ? styles.warning : styles.input}
 				/>
-				{errors.username && <p className={styles.danger}>{errors.username}</p>}
-				<br></br>
-				<label htmlFor="password">Password</label>
+				<p className={styles.danger}>{errors.username}</p>
+
+				<label htmlFor="password">
+					<h3>Password:</h3>
+				</label>
 				<input
+					placeholder="password1"
 					type="password"
 					name="password"
 					value={userData.password}
-					onChange={handleInputChange}
-					className={errors.password && styles.warning}
+					onChange={(e) => handleInputChange(e)}
+					className={errors.password ? styles.warning : styles.input}
 				/>
-				{errors.password && <p className={styles.danger}>{errors.password}</p>}
-				<button type="submit">Login</button>
+				<p className={styles.danger}>{errors.password}</p>
+				<br></br>
+				<button type="submit" className={styles.button}>
+					Log In →
+				</button>
 			</form>
 		</div>
 	);

@@ -43,14 +43,14 @@ export function Card(props) {
 							</button>
 						) : null}
 					</div>
-					<Link to={'/detail/' + props.id}>
-						<h2 className={styles.name}>{props.name}</h2>
+					<Link className={styles.name} to={'/detail/' + props.id}>
+						{props.name}
 					</Link>
 
 					<img className={styles.img} src={props.image} alt={props.name} />
 					<div className={styles.info}>
-						<h4 className={styles.h4}>{props.gender}</h4>
-						<h4 className={styles.h4}>{props.species}</h4>
+						<div>{props.gender}</div>
+						<div>{props.species}</div>
 					</div>
 				</div>
 			</div>

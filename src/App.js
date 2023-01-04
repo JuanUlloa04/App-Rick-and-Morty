@@ -15,18 +15,27 @@ function App() {
 	const navigate = useNavigate();
 	const [access, setAccess] = useState(false);
 
-	const username = 'juanulloa148@gmail.com';
-	const password = '1password';
+	const username = 'juanulloa@gmail.com';
+	const password = 'password1';
 
 	useEffect(() => {
 		!access && navigate('/');
 	}, [access]);
 
-	function login(userData) {
+	function logIn(userData) {
 		if (userData.password === password && userData.username === username) {
 			setAccess(true);
 			navigate('/home');
+		} else if (userData.username !== username) {
+			alert('INCORRECT USERNAME');
+		} else if (userData.password !== password) {
+			alert('INCORRECT PASSWORD');
 		}
+	}
+
+	function logOut() {
+		setAccess(false);
+		navigate('/');
 	}
 
 	function onSearch(id) {
@@ -39,6 +48,7 @@ function App() {
 						alert('El personaje ya existe');
 					} else {
 						setCharacters((oldChars) => [...oldChars, data]);
+						navigate('/home');
 					}
 				} else {
 					window.alert('No hay personajes con ese ID');
@@ -56,9 +66,11 @@ function App() {
 	return (
 		<div className="App">
 			<Video />
-			{location.pathname !== '/' && <NavBar onSearch={onSearch} />}
+			{location.pathname !== '/' && (
+				<NavBar onSearch={onSearch} logOut={logOut} />
+			)}
 			<Routes>
-				<Route path="/" element={<Form login={login} />} />
+				<Route path="/" element={<Form logIn={logIn} />} />
 				<Route
 					path="/home"
 					element={<Cards characters={characters} onClose={onClose} />}

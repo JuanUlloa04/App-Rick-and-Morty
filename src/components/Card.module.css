@@ -72,7 +72,12 @@
 }
 
 .data {
-	position: inherit;
+	height: 100%;
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+	flex-direction: column;
 }
 
 .buttonContainer {
@@ -94,18 +99,20 @@
 
 .name,
 .h4 {
-	margin: 10px 0px;
 	font-size: 18px;
 	color: white;
-	font-variant: small-caps;
+	text-decoration: none;
+	font-weight: bold;
 }
 
 .img {
+	margin: 0px;
 	width: 90%;
 	border-radius: 10px;
 }
 
 .info {
+	color: white;
 	display: flex;
-	justify-content: space-evenly;
+	justify-content: space-around;
 }

@@ -18,7 +18,7 @@ export default function SearchBar(props) {
 		<Contain>
 			<input
 				className={styles.input}
-				placeholder="Write here"
+				placeholder="Write a number between 1 - 826 "
 				type="text"
 				name="search"
 				id=""
@@ -32,7 +32,7 @@ export default function SearchBar(props) {
 					setCharacter('');
 				}}
 			>
-				Agregar
+				Search
 			</button>
 		</Contain>
 	);

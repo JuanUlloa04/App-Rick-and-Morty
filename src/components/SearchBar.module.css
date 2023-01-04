@@ -6,7 +6,7 @@
 	outline: none;
 	background-color: transparent;
 	transition: 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
-	font-size: 18px;
+	font-size: 16px;
 	color: rgb(255, 255, 255);
 }
 
@@ -21,12 +21,14 @@
 }
 
 .input::placeholder {
-	font-size: 18px;
+	font-size: 13px;
 	color: rgb(255, 255, 255);
+	font-weight: bold;
 }
 
 .btn {
-	background: #fbca1f;
+	font-weight: bold;
+	background: #37ff8b;
 	padding: 0.3em 0.75em;
 	font-size: 18px;
 	border: 3px solid black;

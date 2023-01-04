@@ -2,6 +2,7 @@ import React from 'react';
 import { connect, useDispatch } from 'react-redux';
 import { filterCards, orderCards } from '../redux/actions';
 import Card from './Card';
+import styles from './Favorites.module.css';
 
 //    Destructuring props     ↓
 export function Favorites({ myFavorites }) {
@@ -34,14 +35,7 @@ export function Favorites({ myFavorites }) {
 					<option value="unknown">unknown</option>
 				</select>
 			</div>
-			<div
-				style={{
-					marginTop: '15px',
-					display: 'flex',
-					justifyContent: 'space-evenly',
-					flexWrap: 'wrap',
-				}}
-			>
+			<div className={styles.cards}>
 				{myFavorites.length ? (
 					myFavorites.map((c) => {
 						return (
@@ -57,9 +51,7 @@ export function Favorites({ myFavorites }) {
 						);
 					})
 				) : (
-					<h1 style={{ marginTop: '15px', color: 'white' }}>
-						NO HAY FAVORITOS
-					</h1>
+					<h1 className={styles.h1}>NO HAY FAVORITOS</h1>
 				)}
 			</div>
 		</div>
